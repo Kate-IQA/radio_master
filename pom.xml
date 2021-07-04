@@ -21,6 +21,13 @@
             <version>5.4.2</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.20</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -46,16 +53,10 @@
                         </goals>
                     </execution>
                     <execution>
-                        <id>report</id>
+                        <id>report111</id>
                         <phase>verify</phase>
                         <goals>
                             <goal>report</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>checking</id>
-                        <goals>
-                            <goal>check</goal>
                         </goals>
                     </execution>
                 </executions>
@@ -64,7 +65,7 @@
                         <rule>
                             <limits>
                                 <limit>
-                                    <counter>LINE</counter>
+                                    <counter>BRANCH</counter>
                                     <value>COVEREDRATIO</value>
                                     <minimum>100%</minimum>
                                 </limit>
