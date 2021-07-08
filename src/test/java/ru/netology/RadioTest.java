@@ -5,29 +5,19 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RadioTest {
-    public Radio radio;
-
-    RadioTest() {
-        radio = new Radio(25, 100);
-    }
-
+    Radio radio = new Radio (25, 100);
     @Test
     public void shouldSwitchNextStationFromMax() {
 
         radio.setCurrentStation(25);
         assertEquals(25, radio.getCurrentStation());
         radio.nextStation();
-        assertEquals(getExpected(), radio.getCurrentStation());
+        assertEquals(0, radio.getCurrentStation());
     }
-
-    private int getExpected() {
-        return 0;
-    }
-
     @Test
     public void shouldSwitchNextStation() {
 
-        assertEquals(getExpected(), radio.getCurrentStation());
+        assertEquals(0, radio.getCurrentStation());
         radio.nextStation();
         assertEquals(1, radio.getCurrentStation());
     }
@@ -40,11 +30,10 @@ class RadioTest {
         radio.prevStation();
         assertEquals(6, radio.getCurrentStation());
     }
-
     @Test
     public void shouldSwitchPrevStationFrom0() {
 
-        assertEquals(getExpected(), radio.getCurrentStation());
+        assertEquals(0, radio.getCurrentStation());
         radio.prevStation();
         assertEquals(25, radio.getCurrentStation());
     }
@@ -52,35 +41,32 @@ class RadioTest {
     @Test
     public void shouldSetStation() {
 
-        assertEquals(getExpected(), radio.getCurrentStation());
+        assertEquals(0, radio.getCurrentStation());
         radio.setCurrentStation(23);
         assertEquals(23, radio.getCurrentStation());
     }
-
     @Test
     public void shouldSetStationWrongMax() {
 
-        assertEquals(getExpected(), radio.getCurrentStation());
+        assertEquals(0, radio.getCurrentStation());
         radio.setCurrentStation(30);
-        assertEquals(getExpected(), radio.getCurrentStation());
+        assertEquals(0, radio.getCurrentStation());
     }
-
     @Test
     public void shouldSetStationWrongMin() {
 
-        assertEquals(getExpected(), radio.getCurrentStation());
+        assertEquals(0, radio.getCurrentStation());
         radio.setCurrentStation(-5);
-        assertEquals(getExpected(), radio.getCurrentStation());
+        assertEquals(0, radio.getCurrentStation());
     }
 
     @Test
     public void shouldSwitchPlusVolume() {
 
-        assertEquals(getExpected(), radio.getCurrentVolume());
+        assertEquals(0, radio.getCurrentVolume());
         radio.plusVolume();
         assertEquals(1, radio.getCurrentVolume());
     }
-
     @Test
     public void shouldSwitchPlusVolumeWrong() {
 
@@ -93,11 +79,10 @@ class RadioTest {
     @Test
     public void shouldSwitchMinusVolumeWrong() {
 
-        assertEquals(getExpected(), radio.getCurrentVolume());
+        assertEquals(0, radio.getCurrentVolume());
         radio.minusVolume();
-        assertEquals(getExpected(), radio.getCurrentVolume());
+        assertEquals(0, radio.getCurrentVolume());
     }
-
     @Test
     public void shouldSwitchMinusVolume() {
 
@@ -106,3 +91,4 @@ class RadioTest {
         radio.minusVolume();
         assertEquals(54, radio.getCurrentVolume());
     }
+}
